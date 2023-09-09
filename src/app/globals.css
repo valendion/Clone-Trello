@@ -2,26 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  .kanban {
+    @apply flex items-start p-2;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    &__section {
+      @apply w-96 bg-slate-700 p-1 rounded-lg;
+
+      & ~ & {
+        @apply ml-1;
+      }
+    }
+
+    /* Same Thing & ~ & */
+    /* &__section ~ &__section {
+      @apply ml-1;
+    } */
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .card {
+    @apply p-2 m-2 rounded-lg bg-base-300 shadow-xl;
+  }
 }
